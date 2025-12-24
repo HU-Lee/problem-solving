@@ -11,8 +11,10 @@ visited[r-1][0] = True
 
 answer = 0
 
+# x,y에서 시작하고, 현재 이동 거리가 distance
 def dfs(x,y,distance) -> int:
     global answer
+    # 오른쪽 위에 도달했고 거리가 k일 때 count
     if x==c-1 and y==0 and distance == k:
         answer += 1
         return
@@ -31,5 +33,7 @@ def dfs(x,y,distance) -> int:
             visited[y+dy][x+dx] = False
     return
 
+# 왼쪽 아래이므로...
 dfs(0,r-1,1)
+
 print(answer)
