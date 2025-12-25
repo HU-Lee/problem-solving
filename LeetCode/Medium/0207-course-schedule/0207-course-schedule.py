@@ -4,9 +4,10 @@ class Solution:
         graph = [[] for _ in range(numCourses)]
         indegree = [0] * numCourses
 
-        for pre, course in prerequisites:
-            graph[course].append(pre)
-            indegree[pre] += 1
+        # pre -> course 1-directional graph
+        for course, pre in prerequisites:
+            graph[pre].append(course)
+            indegree[course] += 1
 
         # Independent + Leaf node
         q = deque([i for i in range(numCourses) if indegree[i] == 0])
